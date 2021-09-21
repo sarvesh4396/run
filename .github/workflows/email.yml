@@ -1,0 +1,41 @@
+name: send email
+
+on:
+  schedule:
+    - cron: '0 0 1 * *' # runs at 12:00 UTC everyday
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: checkout repo content
+        uses: actions/checkout@v2 # checkout the repository content to github runner
+
+      - name: setup python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8.6' # install the python version needed
+          
+      # - name: install python packages
+      #   run: |
+      #     python3 -m pip install --upgrade pip
+      #     pip3 install -r requirements.txt
+          
+      - name: execute email script # run mayday_sync.py to sync
+        env:
+          GOOGLE_ACCOUNT: ${{ secrets.GOOGLE_ACCOUNT }}
+          GOOGLE_PASSWORD: ${{ secrets.GOOGLE_PASSWORD }}
+          PASTEBIN_API: ${{ secrets.PASTEBIN_API }}
+          PASTEBIN_PASSWORD: ${{ secrets.PASTEBIN_PASSWORD }}
+          PASTEBIN_USERNAME: ${{ secrets.PASTEBIN_USERNAME }}
+          SETUP_FILE_ID: ${{ secrets.SETUP_FILE_ID }}
+      - name: Running setup 
+        run: |
+          chmod 777 set.sh
+          ./setup.sh
+      - name: Running email bash file
+        run: |
+          chmod 777 email.sh
+          ./email.sh
