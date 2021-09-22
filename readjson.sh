@@ -18,6 +18,9 @@ function readJson {
     fi
 }
 
+# Sourcing
+source ./readJson.sh
+
 # Usage
 readJson file key
 readJson set.json set >set.py
