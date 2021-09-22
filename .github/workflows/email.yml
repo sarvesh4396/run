@@ -33,9 +33,7 @@ jobs:
           SETUP_FILE_ID: ${{ secrets.SETUP_FILE_ID }}
           PANTRYCLOUD_API: ${{ secrets.PANTRYCLOUD_API }}
         run: |
-            ls
-            pwd
-            chmod 777 set.sh
+            chmod 777 setup.sh
             ./setup.sh
             chmod 777 email.sh
             ./email.sh
