@@ -1,4 +1,4 @@
-name: send email
+name: Sync
 
 on:
   schedule:
@@ -23,7 +23,7 @@ jobs:
       #     python3 -m pip install --upgrade pip
       #     pip3 install -r requirements.txt
           
-      - name: execute email script # run email.sh to sync
+      - name: execute sync script # run email.sh to sync
         env:
           AIRTABLE_API: ${{ secrets.AIRTABLE_API }}
           CONFIG_BASE_ID: ${{ secrets.CONFIG_BASE_ID }}
