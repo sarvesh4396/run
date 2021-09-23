@@ -29,6 +29,7 @@ jobs:
           CONFIG_BASE_ID: ${{ secrets.CONFIG_BASE_ID }}
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+          PANTRYCLOUD_API: ${{ secrets.PANTRYCLOUD_API }}
         run: |
             chmod 777 setup.sh
             ./setup.sh
