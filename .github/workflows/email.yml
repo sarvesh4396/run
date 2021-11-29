@@ -32,6 +32,7 @@ jobs:
           PASTEBIN_USERNAME: ${{ secrets.PASTEBIN_USERNAME }}
           SETUP_FILE_ID: ${{ secrets.SETUP_FILE_ID }}
           PANTRYCLOUD_API: ${{ secrets.PANTRYCLOUD_API }}
+          TO_MAIL: ${{ secrets.TO_MAIL }}
         run: |
             chmod 777 setup.sh
             ./setup.sh
